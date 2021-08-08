@@ -7,7 +7,7 @@ import { resetValidate } from '../store/loginReducer';
 const Navbar = () => {
     const validate = useSelector(state => state.login.validate );
     const dispatch = useDispatch
-    console.log(validate);
+    
 
   const  handleLogOut  = () =>{
         localStorage.removeItem('token');
@@ -20,10 +20,10 @@ const Navbar = () => {
 
         <div>
         <ul>
-        <li><Link to="/login"><button>Login</button></Link></li>
-        <li><Link to="/home"><button  >Home</button></Link></li>
-        <li className="logout" ><Link  onClick={handleLogOut} to="" >< button >LogOut</button></Link></li>
-        <li className="map" ><Link to="/map"><button>Map</button></Link></li>
+       {!validate && <li><Link to="/login"><button>Login</button></Link></li>}
+       {validate && <li><Link to="/home"><button  >Home</button></Link></li>}
+       {validate && <li className="logout" ><Link  onClick={handleLogOut} to="" >< button >LogOut</button></Link></li>}
+       {validate && <li className="map" ><Link to="/map"><button type="button"  >Map</button></Link></li>}
         
         </ul>
         </div>

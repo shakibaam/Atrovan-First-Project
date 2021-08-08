@@ -11,14 +11,14 @@ const Login = (props) => {
 
     const validate = useSelector(state => state.login.validate );
     const dispatch = useDispatch();
-
-    // useEffect(() =>{
+    console.log(validate);
+    useEffect(() =>{
        
-    //     if(validate === true){
-    //         dispatch(resetValidate({validate : false}));
-    //     }
+        if(validate === true){
+            props.history.push('/home');
+        }
   
-    //   });
+      });
 
    
     let username = "";
@@ -35,14 +35,15 @@ const Login = (props) => {
         
     }
 
-    const handleSubmit = async (e) =>{
+    const handleSubmit =  (e) =>{
 
         e.preventDefault();
 
         console.log("user and pass " , username , password);
        
-        await dispatch(login(username , password));
-        props.history.push("/home");
+         dispatch(login(username , password));
+        if(validate === true){props.history.push("/home");}
+        
        
 
           
