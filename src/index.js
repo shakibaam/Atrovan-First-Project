@@ -3,17 +3,18 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/store";
 
-const unSubscribe = store.subscribe(() =>  {
+const unSubscribe = store.subscribe(() => {
   console.log("Store changed!", store.getState());
 });
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+      
       <Provider store={store}>
         <App />
       </Provider>

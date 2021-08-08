@@ -1,9 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createSelector } from 'reselect';
 import axios from "axios";
-
-
-
 
 const INITIAL_STATE = {
   devices: [],
@@ -40,7 +36,7 @@ export const getDeviceFromApi = () => async (dispatch) => {
       }
     );
 
-    // console.log(response.data);
+ 
 
     dispatch(getDevices({ devices: response.data.data }));
   } catch (ex) {

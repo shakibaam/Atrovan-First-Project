@@ -15,10 +15,10 @@ function App() {
       <Navbar />
       <ToastContainer />
       <Switch>
+        <Redirect from="/" exact to="/login" />
         <Route path="/login" exact component={Login} />
         <Route path="/home" exact component={Home} />
         <Route path="/map" exact component={TestMap} />
-        {/* <Redirect from="/" exact to="/login" /> */}
       </Switch>
     </div>
   );
